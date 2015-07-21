@@ -1,4 +1,4 @@
-name        "layer-custom"
+name        "elasticsearch-aws-custom"
 description "ElasticSearch Custom scripts from http://blogs.aws.amazon.com/application-management/post/Tx3MEVKS0A4G7R5/Deploying-Elasticsearch-with-OpsWorks"
 maintainer  "amazonwebservices"
 license     "Apache 2.0"
