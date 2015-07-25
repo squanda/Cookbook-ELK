@@ -1,0 +1,58 @@
+{
+    "java": {
+        "jdk_version": "7",
+        "oracle": {
+            "accept_oracle_download_terms": "true"
+        },
+        "accept_license_agreement": "true",
+        "install_flavor": "oracle"
+    },
+    "elasticsearch": {
+       "basic_auth": {
+            "user": "swoop",
+            "password": "swoopswoop"
+        },
+        "cluster": {
+            "name": "opsworks-elasticsearch"
+        },
+        "gateway": {
+            "expected_nodes": 1
+        },
+        "discovery": {
+            "type": "ec2",
+            "zen": {
+                "minimum_master_nodes": 1
+            },
+            "ping": {
+                "multicast": {
+                    "enabled": false
+                }
+            }
+        },
+        "ec2": {
+            "tag": {
+                "opsworks:stack": "ElasticSearch"
+            }
+        }
+    },
+    "elasticsearchtest": {
+        "Type": "AWS::EC2::SecurityGroup",
+        "Properties": {
+            "GroupDescription": "so that ES cluster can find other nodes"
+        }
+    },
+    "path": {
+        "data": "/data"
+    },
+    "cloud": {
+        "aws": {
+            "region": "us-east-1"
+        }
+    },
+    "custom_config": {
+        "cluster.routing.allocation.awarenesss.attribute": "rack_id"
+    },
+    "opsworks_berkshelf": {
+        "debug": true
+    }
+}
