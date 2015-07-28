@@ -8,12 +8,27 @@
         "install_flavor": "oracle"
     },
     "elasticsearch": {
-        "basic_auth": {
-            "user": "swoop",
-            "password": "swoopswoop"
+        "nginx": {
+            "users": [
+                {
+                    "username": "swoop",
+                    "password": "swoopswoop"
+                }
+            ],
+            "allow_cluster_api": "true",
+            "port": "80"
         },
         "cluster": {
             "name": "opsworks-elasticsearch"
+        }
+    },
+    "cloud": {
+        "aws": {
+            "region": "us-east",
+            "discovery" :{
+                "type" : "ec2",
+                "groups" : "Prod-ELK-Securitygroup"
+            }
         }
     }
 }
